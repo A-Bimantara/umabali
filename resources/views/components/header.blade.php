@@ -5,7 +5,7 @@
       <a href="#">
         <div class="flex items-center space-x-2">
             <img src="{{ asset('images/UmaBali_Logo.png') }}" alt="Logo" class="h-17 w-17 rounded-full">
-            <span class="font-bold text-2xl text-gray-900">Uma Bali</span>
+            <span class="font-bold text-2xl text-gray-900">UmaBali</span>
         </div>
       </a>
     
