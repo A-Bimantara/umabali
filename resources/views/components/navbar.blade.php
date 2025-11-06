@@ -12,15 +12,38 @@
 
     <!-- Tengah: Menu -->
     <nav class="flex items-center ml-30 space-x-2">
-        <a href="#" class="flex items-center space-x-2 text-gray-800 font-semibold border-b-2 border-black pb-1">
-            <img src="{{ asset('images/house.png') }}" alt="Home" class="h-10 w-10">
-            <span>Homes</span>
-        </a>
+        <div class="w-full flex justify-center py-4">
+        <div class="bg-white shadow-xl rounded-full flex items-center divide-x divide-gray-300 overflow-hidden">
+        <!-- Lokasi -->
+        <div class="px-6 py-3 hover:bg-gray-100 cursor-pointer">
+            <p class="text-xs font-semibold text-gray-800">Lokasi</p>
+            <p class="text-sm text-gray-500">Cari Destinasi</p>
+        </div>
+        <!-- Tanggal -->
+        <div class="px-6 py-3 hover:bg-gray-100 cursor-pointer">
+            <p class="text-xs font-semibold text-gray-800">Tanggal</p>
+            <p class="text-sm text-gray-500">Tambahkan Tanggal</p>
+        </div>
+        <!-- Tamu -->
+        <div class="px-6 py-3 hover:bg-gray-100 cursor-pointer">
+            <p class="text-xs font-semibold text-gray-800">Tamu</p>
+            <p class="text-sm text-gray-500">Tambahkan Tamu</p>
+        </div>
+        <!-- Tombol Cari -->
+        <button class="bg-black text-white rounded-full p-3 my-2 mx-4 flex items-center justify-center hover:bg-gray-800">
+            <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
+                stroke-width="2" stroke="currentColor" class="w-5 h-5">
+            <path stroke-linecap="round" stroke-linejoin="round"
+                    d="m21 21-4.35-4.35m0 0a7.5 7.5 0 1 0-10.6-10.6 7.5 7.5 0 0 0 10.6 10.6z"/>
+            </svg>
+        </button>
+        </div>
+    </div>
     </nav>
 
     <!-- Kanan: Aksi -->
     <div class="flex items-center space-x-4">
-    
+
       <!-- Menjadi Tuan Rumah -->
 
     <a href="#"
@@ -82,31 +105,25 @@
 
 
   <!-- Baris bawah: Search bar -->
-  <div class="w-full flex justify-center pb-8">
+  {{-- <div class="w-full flex justify-center pb-8">
     <div class="bg-white shadow-xl rounded-full flex items-center divide-x divide-gray-300 overflow-hidden">
       <!-- Lokasi -->
-      <div class="px-6 py-3 hover:bg-gray-100 cursor-pointer ">
-        <div class="mx-8">
-            <p class="text-xs font-semibold text-gray-800">Lokasi</p>
-            <p class="text-sm text-gray-500">Cari Destinasi</p>
-        </div>
+      <div class="px-6 py-3 hover:bg-gray-100 cursor-pointer">
+        <p class="text-xs font-semibold text-gray-800">Lokasi</p>
+        <p class="text-sm text-gray-500">Cari Destinasi</p>
       </div>
       <!-- Tanggal -->
       <div class="px-6 py-3 hover:bg-gray-100 cursor-pointer">
-        <div class="mx-8">
-            <p class="text-xs font-semibold text-gray-800">Tanggal</p>
-            <p class="text-sm text-gray-500">Tambahkan Tanggal</p>
-        </div>
+        <p class="text-xs font-semibold text-gray-800">Tanggal</p>
+        <p class="text-sm text-gray-500">Tambahkan Tanggal</p>
       </div>
       <!-- Tamu -->
       <div class="px-6 py-3 hover:bg-gray-100 cursor-pointer">
-        <div class="mx-8">
-            <p class="text-xs font-semibold text-gray-800">Tamu</p>
-            <p class="text-sm text-gray-500">Tambahkan Tamu</p>
-        </div>
+        <p class="text-xs font-semibold text-gray-800">Tamu</p>
+        <p class="text-sm text-gray-500">Tambahkan Tamu</p>
       </div>
       <!-- Tombol Cari -->
-      <button class="bg-black text-white rounded-full mx-8 p-3 my-2 flex items-center justify-center hover:bg-gray-800">
+      <button class="bg-black text-white rounded-full p-3 m-2 flex items-center justify-center hover:bg-gray-800">
         <svg xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24"
              stroke-width="2" stroke="currentColor" class="w-5 h-5">
           <path stroke-linecap="round" stroke-linejoin="round"
@@ -114,5 +131,5 @@
         </svg>
       </button>
     </div>
-  </div>
+  </div> --}}
 </header>
