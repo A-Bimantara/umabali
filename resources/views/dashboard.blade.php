@@ -1,32 +1,17 @@
-@extends('layouts.home')
-@section('content')
-    <div>
-        <h2 class="text-2xl font-bold mb-6">Popular homes in Badung ></h2>
-            <div class="flex flex-wrap gap-6">
-                @foreach($listings as $list)
-                    <x-home-card 
-                        :id="$list['id']"
-                        :image="$list['image']" 
-                        :title="$list['title']" 
-                        :price="$list['price']" 
-                        {{-- :rating="$home['rating']" --}}
-                    />
-                @endforeach
-            </div>
-    </div>
+<x-app-layout>
+    <x-slot name="header">
+        <h2 class="font-semibold text-xl text-gray-800 dark:text-gray-200 leading-tight">
+            {{ __('dashboard') }}
+        </h2>
+    </x-slot>
 
-    <div class="mt-12">
-        <h2 class="text-2xl font-bold mb-6">Popular Home in Ubud ></h2>
-            <div class="flex flex-wrap gap-6">
-                @foreach($listings as $list)
-                    <x-home-card 
-                        :id="$list['id']"
-                        :image="$list['image']" 
-                        :title="$list['title']" 
-                        :price="$list['price']" 
-                        {{-- :rating="$home['rating']" --}}
-                    />
-                @endforeach
+    <div class="py-12">
+        <div class="max-w-7xl mx-auto sm:px-6 lg:px-8">
+            <div class="bg-white dark:bg-gray-800 overflow-hidden shadow-sm sm:rounded-lg">
+                <div class="p-6 text-gray-900 dark:text-gray-100">
+                    {{ __("You're logged in!") }}
+                </div>
             </div>
+        </div>
     </div>
-@endsection
+</x-app-layout>

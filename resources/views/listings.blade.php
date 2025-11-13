@@ -45,6 +45,13 @@
             </div>
 
             <div>
+                <h2 class="text-lg font-semibold my-4">Deskripsi</h2>
+                <div class="rounded-lg w-180 flex items-center justify-center">
+                    <h2>{{ $list['description'] }}</h2>
+                </div>
+            </div>
+
+            <div>
                 <h2 class="text-lg font-semibold mb-2">Kamar Anda</h2>
                 <div class="bg-gray-200 rounded-lg h-70 w-180 flex items-center justify-center text-gray-500">
                     <img src="{{ $list['image'] }}" alt="{{ $list['title'] }}" class="w-full h-full object-cover rounded-lg">

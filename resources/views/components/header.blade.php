@@ -6,28 +6,50 @@
         <div class="flex items-center space-x-2">
             <img src="{{ asset('images/UmaBali_Logo.png') }}" alt="Logo" class="h-17 w-17 rounded-full">
             <span class="font-bold text-2xl text-gray-900">UmaBali</span>
+            @auth
+              <div class="px-4">
+                <span class="font-bold text-xl text-gray-900">Hi, {{Auth::user()->name}}!</span>
+              </div>
+            @endauth
         </div>
       </a>
     
 
     <!-- Tengah: Menu -->
-    <nav class="flex items-center ml-30 space-x-2">
+    @auth
+      <nav class="flex items-center space-x-2">
         <a href="#" class="flex items-center space-x-2 text-gray-800 font-semibold border-b-2 border-black pb-1">
             <img src="{{ asset('images/house.png') }}" alt="Home" class="h-10 w-10">
             <span>Homes</span>
         </a>
-    </nav>
+      </nav>
+    @endauth
+
+    @guest
+      <nav class="flex items-center ml-30 space-x-2">
+        <a href="#" class="flex items-center space-x-2 text-gray-800 font-semibold border-b-2 border-black pb-1">
+            <img src="{{ asset('images/house.png') }}" alt="Home" class="h-10 w-10">
+            <span>Homes</span>
+        </a>
+      </nav>
+    @endguest
 
     <!-- Kanan: Aksi -->
     <div class="flex items-center space-x-4">
     
       <!-- Menjadi Tuan Rumah -->
-
-    <a href="#"
+    @auth()
+      <a href="#"
         class="px-4 py-2 rounded-full text-black font-semibold bg-gray-50 hover:bg-gray-100 transition-colors duration-200">
         Menjadi Tuan Rumah
-    </a>
-
+      </a>
+    @endauth
+    @guest
+      <a href="/login"
+        class="px-4 py-2 rounded-full text-black font-semibold bg-gray-50 hover:bg-gray-100 transition-colors duration-200">
+        Menjadi Tuan Rumah
+      </a>
+    @endguest
 
       <!-- Ikon User (Dropdown) -->
       <div x-data="{ openUser: false }" class="relative">
@@ -40,15 +62,46 @@
         </button>
 
         <!-- Dropdown User -->
-        <div x-show="openUser"
+        @guest
+          <div x-show="openUser"
              @click.away="openUser = false"
              x-transition
              class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg border border-gray-100 z-50">
-          <a href="#"
-             class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg">
-             Log in or Sign up
-          </a>
-        </div>
+            <a href="/login"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg">
+              Log in
+            </a>
+            <a href="/register"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg">
+              Sign up
+            </a>
+          </div>
+        @endguest
+
+        @auth
+          <div x-show="openUser"
+             @click.away="openUser = false"
+             x-transition
+             class="absolute right-0 mt-2 w-40 bg-white shadow-lg rounded-lg border border-gray-100 z-50">
+            <a href="#"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg">
+              View Profile
+            </a>
+            <form method="POST" action="{{ route('logout') }}">
+              @csrf
+
+              <a class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg" href="route('logout')"
+                      onclick="event.preventDefault();
+                                  this.closest('form').submit();">
+                  {{ __('Log Out') }}
+              </a>
+            </form>
+            {{-- <a href="/logout"
+              class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 hover:text-gray-900 rounded-lg">
+              Logout
+            </a> --}}
+          </div>
+        @endauth
       </div>
 
       <!-- Ikon Menu (Dropdown) -->
